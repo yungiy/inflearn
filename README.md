@@ -1,2 +1,2 @@
-# full-stack-website
-supbase, nextjs로 만드는 풀스택 웹사이트
+# iNflearn
+인프런을 보고 만든 프로젝트들을 정리했습니다. 
