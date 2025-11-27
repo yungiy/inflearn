@@ -1,11 +1,11 @@
+import { fetchTodoById } from "../../api/fetch-todo-by-id";
 import { useQuery } from "@tanstack/react-query";
-import { FetchTodoById } from "../../api/fetch-todo-by-id";
+import { QUERY_KEYS } from "../../lib/constants";
 
-export function useTodoDataById(id: string) {
+export function useTodoDataById(id: string, type: "LIST" | "DETAIL") {
   return useQuery({
-    queryFn: () => FetchTodoById(id),
-    queryKey: ["todos", id],
-
-    staleTime: 4000
+    queryFn: () => fetchTodoById(id),
+    queryKey: QUERY_KEYS.todo.detail(id),
+    enabled: type === "DETAIL",
   });
 }

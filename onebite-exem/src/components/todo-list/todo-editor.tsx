@@ -1,14 +1,10 @@
 import { useState } from "react";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
-import { createTodo } from "../../api/create-todo";
-import { useMutation } from "@tanstack/react-query";
+import { useCreateTodoMutation } from "../../hooks/mutations/use-create-todo-mutation";
 
 export default function TodoEditor() {
-  const { mutate, isPending } = useMutation({
-    mutationFn: createTodo,
-  });
-
+  const { mutate, isPending } = useCreateTodoMutation()
   const [content, setContent] = useState("");
 
   const handleAddClick = () => {
