@@ -4,7 +4,7 @@ import { Input } from "../ui/input";
 import { useCreateTodoMutation } from "../../hooks/mutations/use-create-todo-mutation";
 
 export default function TodoEditor() {
-  const { mutate, isPending } = useCreateTodoMutation()
+  const { mutate, isPending } = useCreateTodoMutation();
   const [content, setContent] = useState("");
 
   const handleAddClick = () => {

@@ -1,6 +1,5 @@
 import { Link } from "react-router";
 import { useUpdateTodoMutation } from "../../hooks/mutations/use-update-todo-mutaion";
-import type { Todo } from "../../types";
 import { Button } from "../ui/button";
 import { useDeleteTodoMutaion } from "../../hooks/mutations/use-delete-todo-mutaion";
 import { useTodoDataById } from "../../hooks/queries/use-todo-by-id";
@@ -26,8 +25,8 @@ export default function TodoItem({ id }: { id: string }) {
   };
 
   return (
-    <div className="flex items-center justify-between border p-2">
-      <div className="flex gap-5">
+    <div className="flex items-center justify-between rounded-md border p-2">
+      <div className="flex items-center gap-5">
         <input
           disabled={isDeleteTodoPending}
           onClick={handleCheckboxClick}

@@ -8,8 +8,6 @@ export function useCreateTodoMutation() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: createTodo,
-    onMutate: () => {},
-    onSettled: () => {},
     onSuccess: (newTodo) => {
       queryClient.setQueryData<Todo>(
         QUERY_KEYS.todo.detail(newTodo.id),

@@ -1,5 +1,5 @@
-import { API_URL } from '../lib/constants';
-import type { Todo } from '../types';
+import { API_URL } from "../lib/constants";
+import type { Todo } from "../types";
 
 export async function fetchTodos() {
   const response = await fetch(`${API_URL}/todos`);
