@@ -2,15 +2,23 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { Link } from "react-router";
+import { useSignInWithPassword } from "@/hooks/mutations/use-sign-in-with-password";
 
 export default function SigninPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSigninClick = () => {
-    // 입력값 검증
+  const { mutate: signInWithPassword } = useSignInWithPassword();
+
+  const handleSignInClick = () => {
+    // 공백 입력값 검증
     if (email.trim() === "") return;
     if (password.trim() === "") return;
+
+    signInWithPassword({
+      email,
+      password,
+    });
   };
 
   return (
@@ -33,7 +41,7 @@ export default function SigninPage() {
         />
       </div>
       <div>
-        <Button className="w-full" onClick={handleSigninClick}>
+        <Button className="w-full" onClick={handleSignInClick}>
           로그인
         </Button>
       </div>
